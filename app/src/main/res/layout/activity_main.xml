@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvHelloWorld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -14,5 +15,25 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAnnoyStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Start the Swarm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHelloWorld"
+        app:layout_constraintVertical_bias="0.078"
+        tools:layout_editor_absoluteX="167dp" />
+
+    <Button
+        android:id="@+id/btn_OneNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Only One Poke"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnnoyStart"
+        tools:layout_editor_absoluteX="167dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
