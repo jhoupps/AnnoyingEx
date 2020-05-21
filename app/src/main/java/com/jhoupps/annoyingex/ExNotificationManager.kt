@@ -7,6 +7,7 @@ import android.app.TaskStackBuilder
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import kotlin.random.Random
@@ -16,6 +17,7 @@ class ExNotificationManager (
 ) {
 
     private val notificationManagerCompat = NotificationManagerCompat.from(context)
+    var messagebank = listOf<String>() //empty until filled by main activity
 
     init {
         createFunChannel()
@@ -64,44 +66,18 @@ class ExNotificationManager (
     }
 
 
-    //todo make changes here when i go online
-    fun getMessage(): String {
-        //todo this should be from the internet
-        val messagebank = listOf<String>(
-            "hey u up?",
-            "wyd",
-            "baby im sorry",
-            "can we talk?",
-            "i miss youuuuu",
-            "i love you",
-            "im sorry, plz come back",
-            "plz unblock me",
-            "call me back asap",
-            "just thinkin about you tonight",
-            "why wont you talk to me",
-            "please can you just call me",
-            "can we talk in person",
-            "do you ever think about us",
-            "lol",
-            "hows your day going",
-            "so this is it huh?",
-            "you used to call me on my cellphone late night when you need my love",
-            "so who was that in your IG story",
-            "im bored",
-            "hey Facetime? call? text?... Zoom?",
-            "Good morning :)",
-            "i just think its funny how... ",
-            "hahahahahahahahahahahahahaha thats a good facebook post",
-            "din tai fung?",
-            "28th times a charm?",
-            "baby...SHARK Du-du-du-duuuu, baby shark!"
-        )
+    private fun getMessage(): String {
 
-        //check for if it doesnt work
-        val message =  messagebank.random()
+        var message = "THIS WILL BE OVERWRITTEN"
+
+        message = if (messagebank.isNotEmpty()){
+            messagebank.random()
+        } else {
+            Log.i("jhoupps", "I decided that there was an error!")
+            Log.i("jhoupps", messagebank.toString())
+            "unable to retrieve message"
+        }
         return message
-
-
     }
 
 

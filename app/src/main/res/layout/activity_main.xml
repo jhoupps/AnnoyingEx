@@ -23,7 +23,7 @@
         android:id="@+id/btn_OneNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Only One Poke"
+        android:text="Slide In"
         app:layout_constraintBottom_toTopOf="@id/btnCancel"
         app:layout_constraintTop_toBottomOf="@+id/btnAnnoyStart"
         app:layout_constraintLeft_toRightOf="parent"
