@@ -12,6 +12,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import kotlin.random.Random
 
+//This class manages all functions and application data to do with the notification functionality
 class ExNotificationManager (
     private val context: Context
 ) {
@@ -23,7 +24,7 @@ class ExNotificationManager (
         createFunChannel()
     }
 
-
+    //This function posts one notification to the phone
     fun postItNote() {
         // Create an Intent for the activity you want to start
         val mainIntent = Intent(context, MainActivity::class.java)
@@ -35,9 +36,7 @@ class ExNotificationManager (
             getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
         }
 
-
-
-
+        //This portion builds the notification
         val notification = NotificationCompat.Builder(context, FUN_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_sentiment_very_dissatisfied_black_24dp)
             .setContentTitle("That F@#%ing B@st@rd")
@@ -51,6 +50,7 @@ class ExNotificationManager (
         notificationManagerCompat.notify(Random.nextInt(), notification)
     }
 
+    //This function creates the notification channel
     private fun createFunChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -65,9 +65,10 @@ class ExNotificationManager (
         }
     }
 
-
+    //This function is used to figure out what the message displayed is
+    //It chooses randomly from the list of messages
+    //And returns "unable to retrieve message" if it's unable to retrieve the data
     private fun getMessage(): String {
-
         var message = "THIS WILL BE OVERWRITTEN"
 
         message = if (messagebank.isNotEmpty()){
@@ -80,12 +81,8 @@ class ExNotificationManager (
         return message
     }
 
-
-
+    //Companion Object for the channel ID
     companion object {
         const val FUN_CHANNEL_ID = "FUNCHANNELID"
     }
-
-
-
 }

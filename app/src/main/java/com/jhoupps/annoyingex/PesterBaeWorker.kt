@@ -4,10 +4,10 @@ import android.content.Context
 import android.util.Log
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.jhoupps.annoyingex.ExApplication
-import com.jhoupps.annoyingex.ExNotificationManager
 
-
+//This class is the worker
+//It is called every 20 minutes by the ManageTheWorkManagerManger
+//It then calls the ExNotificationClass in order to send a notification every 20 minutes
 class PesterBaeWorker(private val context: Context, workParams: WorkerParameters): Worker(context , workParams) {
 
 

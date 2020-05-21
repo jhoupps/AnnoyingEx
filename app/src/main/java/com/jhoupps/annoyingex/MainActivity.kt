@@ -11,29 +11,35 @@ import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 
+//Main and Only Activity for the app
 class MainActivity : AppCompatActivity() {
     lateinit var exApp: ExApplication
 
+    //On create, initialize the other components, and fetch the JSON data
+    //Uses Volley to do the fetching
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        //Initialize other components
         exApp = (application as ExApplication)
         val manageTheWorkManagerManager = exApp.manageTheWorkManagerManager
 
+        //Set button functionality
         btnAnnoyStart.setOnClickListener {
             manageTheWorkManagerManager.startAnnoyingTheHeckOuttaPerson()
         }
 
         btn_OneNotification.setOnClickListener {
-            exApp.exNotificationManager.postItNote() //todo apparently we should use poking the bear manager here
+            exApp.exNotificationManager.postItNote()
         }
 
         btnCancel.setOnClickListener{
             manageTheWorkManagerManager.stopWork()
             Toast.makeText(this, "Successfully Blocked \"That F@#%ing B@st@rd\"",Toast.LENGTH_SHORT ).show()
         }
+
+        //Fetching the JSON from the internet
 
         //Call the JSON from the api
         // Instantiate the RequestQueue.
@@ -54,22 +60,18 @@ class MainActivity : AppCompatActivity() {
         queue.add(stringRequest)
     }
 
-
+    //Parse the data that was fetched in JSON form
+    //Uses GSON
     fun parseData(theData: String){
         val gson = Gson()
-
         val allMessages: AllMessages = gson.fromJson(theData, AllMessages::class.java)
-
 
         allMessages.messages.let {
             Log.i("jhoupps", "Parsed a content of: $it")
         }
 
         exApp.exNotificationManager.messagebank = allMessages.messages
-
-
     }
-
 }
 
 //Models
