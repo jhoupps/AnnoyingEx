@@ -16,14 +16,13 @@ class ManageTheWorkManagerManager (private val context: Context) {
 
         //TODO - CHECK IF THIS CONSTRAINT IS NEEDED
         val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .setRequiresCharging(true)
             .build()
 
-        PeriodicWorkRequestBuilder<AskAQuestionWorker>(15, TimeUnit.MINUTES)
+        PeriodicWorkRequestBuilder<PesterBaeWorker>(15, TimeUnit.MINUTES)
 
-        //TODO - CURRENTLY THIS JUST ASKS ARE WE THERE YET IN THE LOG
-        val workRequest = PeriodicWorkRequestBuilder<AskAQuestionWorker>(15, TimeUnit.MINUTES)
-            .setInitialDelay(5000, TimeUnit.MILLISECONDS)
+        val workRequest = PeriodicWorkRequestBuilder<PesterBaeWorker>(20, TimeUnit.MINUTES)
+            .setInitialDelay(5, TimeUnit.SECONDS)
             .setConstraints(constraints)
             .addTag(AWTY_WORK_REQUEST_TAG)
             .build()

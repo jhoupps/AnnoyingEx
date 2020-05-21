@@ -23,5 +23,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        //test data form until I get the api set up
+        //TODO - CALL THIS FROM THE INTERNET
+
+
     }
+
 }

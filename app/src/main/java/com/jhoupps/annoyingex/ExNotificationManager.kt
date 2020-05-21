@@ -23,15 +23,57 @@ class ExNotificationManager (
 
     fun postItNote() {
         val notification = NotificationCompat.Builder(context, FUN_CHANNEL_ID)
-            //.setSmallIcon(R.drawable.ic_smoke_free_black_24dp)
-            .setContentTitle("Post Malone")
-            .setContentText("You a SUNNN FLOOOOWWWWWAAAAAAAAAA ${Random.nextInt()}")
+            .setSmallIcon(R.drawable.ic_sentiment_very_dissatisfied_black_24dp)
+            .setContentTitle("That F@#%ing B@st@rd")
+            .setContentText(getMessage())
+            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
           //  .setContentIntent(pendingDealsIntent)
-            .setAutoCancel(true)
+            .setAutoCancel(true) //closes notification upon being tapped
+                //TODO - LAUNCH MAIN ACTIVITY ON TAP
             .build()
 
         notificationManagerCompat.notify(Random.nextInt(), notification)
+    }
+
+    //todo make changes here when i go online
+    fun getMessage(): String {
+    //todo this should be from the internet
+        val messagebank = listOf<String>(
+            "hey u up?",
+            "wyd",
+            "baby im sorry",
+            "can we talk?",
+            "i miss youuuuu",
+            "i love you",
+            "im sorry, plz come back",
+            "plz unblock me",
+            "call me back asap",
+            "just thinkin about you tonight",
+            "why wont you talk to me",
+            "please can you just call me",
+            "can we talk in person",
+            "do you ever think about us",
+            "lol",
+            "hows your day going",
+            "so this is it huh?",
+            "you used to call me on my cellphone late night when you need my love",
+            "so who was that in your IG story",
+            "im bored",
+            "hey Facetime? call? text?... Zoom?",
+            "Good morning :)",
+            "i just think its funny how... ",
+            "hahahahahahahahahahahahahaha thats a good facebook post",
+            "din tai fung?",
+            "28th times a charm?",
+            "baby...SHARK Du-du-du-duuuu, baby shark!"
+        )
+
+        //check for if it doesnt work
+        val message =  messagebank.random()
+        return message
+
+
     }
 
     private fun createFunChannel() {
