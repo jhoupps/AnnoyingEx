@@ -22,6 +22,6 @@ So, this section is empty! Woot woot.
 ## Unknown bugs:
 ?????
 
-Extra Credit:
+## Extra Credit:
 I may have had my stuff together enough to submit on time this week, but I did not have it together enough 
 to attempt the extra credit. No extra credit to see here. 
