@@ -15,11 +15,11 @@ Photo of my app running on my phone:
 ![image of notifications working](https://github.com/jhoupps/AnnoyingEx/blob/hw5/notification_screenshot.png)
 
 
-##Known Bugs:
+## Known Bugs:
 For once, I don't believe I have any known bugs. 
 So, this section is empty! Woot woot.
 
-##Unknown bugs:
+## Unknown bugs:
 ?????
 
 Extra Credit:
